@@ -35,6 +35,8 @@ class EventHandlinActivity : AppCompatActivity() {
 
     private lateinit var hideButton: Button
     private lateinit var showButton: Button
+    private lateinit var yesButton: Button
+    private lateinit var signInButton: Button
 
     private var count = 1
 
@@ -68,6 +70,8 @@ class EventHandlinActivity : AppCompatActivity() {
       speechButton = findViewById(R.id.btnSpeech)
       hideButton = findViewById(R.id.btnHide)
       showButton = findViewById(R.id.btnShow)
+      yesButton = findViewById(R.id.btnYes)
+      signInButton = findViewById(R.id.btnSignIn)
 
   }
 
@@ -118,6 +122,15 @@ class EventHandlinActivity : AppCompatActivity() {
             showKeyboard()
         }
 
+        yesButton.setOnClickListener {
+            answerMe(Answer.NO)
+        }
+
+        signInButton.setOnClickListener {
+            val intent = Intent(this, SignInScreen2::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
@@ -165,9 +178,42 @@ class EventHandlinActivity : AppCompatActivity() {
         view?.let { v ->
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.showSoftInput(v, InputMethodManager.SHOW_IMPLICIT)
+
+            Toast.makeText(this,"Show Keyboard!",Toast.LENGTH_SHORT)
         }
 
 
     }
+
+
+    private fun nullabilityHandling(){
+        var name: String = ""
+        var name2: String? = ""
+
+
+        //name = null
+        name2 = null
+
+        name = name2!!
+
+        name = name2?.toString() ?: "Default Value"
+
+
+
+    }
+
+
+    private fun answerMe(answer: Answer){
+        if(answer == Answer.YES){
+            Toast.makeText(this,"She said Yes!",Toast.LENGTH_SHORT).show()
+        }else if (answer == Answer.NO){
+            Toast.makeText(this,"She said No!",Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this,"May Be!",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    enum class Answer {NO, YES, MAYBE }
 
 }

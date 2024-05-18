@@ -47,4 +47,6 @@
     <string name="name">Name</string>
     <string name="speech">Speech</string>
     <string name="hide_keyboard">Hide Keyboard</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
 </resources>
