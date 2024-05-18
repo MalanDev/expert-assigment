@@ -13,12 +13,8 @@
         android:theme="@style/Theme.TestApp"
         tools:targetApi="31">
         <activity
-            android:name=".SignInScreen"
-            android:exported="false" />
-        <activity
-            android:name=".SecondActivity"
-            android:exported="true"
-            android:theme="@style/Theme.TestApp">
+            android:name=".EventHandlinActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,8 +22,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".SignInScreen"
+            android:exported="false" />
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TestApp">
+
+        </activity>
+        <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
