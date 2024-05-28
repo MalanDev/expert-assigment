@@ -48,6 +48,8 @@ class SignInScreen2 : AppCompatActivity() {
                Toast.makeText(this,"Login!",Toast.LENGTH_LONG).show()
                // Explicit Intent
                val intent = Intent(this,DashboardActivity::class.java)
+               intent.putExtra("userName",userName)
+               intent.putExtra("password",password)
                startActivity(intent)
 
                //Implicit Intent
