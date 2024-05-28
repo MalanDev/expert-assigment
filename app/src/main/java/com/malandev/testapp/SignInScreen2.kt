@@ -1,5 +1,7 @@
 package com.malandev.testapp
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -33,15 +35,26 @@ class SignInScreen2 : AppCompatActivity() {
       txtUserName = findViewById(R.id.txtUserName)
       txtPassword = findViewById(R.id.txtPassword)
       btnSubmit = findViewById(R.id.btnSubmit)
+
     }
 
     private fun declareEvents() {
+
        btnSubmit.setOnClickListener {
            val userName = txtUserName.text.toString()
            val password = txtPassword.text.toString()
 
            if(userName == "malan" && password == "1234"){
                Toast.makeText(this,"Login!",Toast.LENGTH_LONG).show()
+               // Explicit Intent
+               val intent = Intent(this,DashboardActivity::class.java)
+               startActivity(intent)
+
+               //Implicit Intent
+               val impIntent = Intent(Intent.ACTION_VIEW)
+               impIntent.data = Uri.parse("https://www.google.com/")
+               startActivity(impIntent)
+
            }else{
                Toast.makeText(this,"UserName and password wrong!",Toast.LENGTH_LONG).show()
            }
